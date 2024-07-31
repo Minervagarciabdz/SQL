@@ -12,7 +12,7 @@
 
 Lo que sugiere una constancia en clientes y en ventas.
 
-Otro punto importante a tener presente es el top 5 de los produntos que más se piden esta compuesto de la siguiente manera:
+Otro punto importante a tener presente es el **top 5** de los produntos que más se piden esta compuesto de la siguiente manera:
 1. 101 Hamburger Americana $12.95
 2. 113 Edamame Asian $5.00
 3. 109 Korean Beef Bowl Asian $17.95
