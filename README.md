@@ -24,7 +24,7 @@ Por contra parte tenemos los 5 productos menos vendidos del menú:
    
 ![Captura de pantalla 2024-07-30 200021](https://github.com/user-attachments/assets/512b5c45-7ebb-4685-8d91-034070c9bb39)
 
-Otra informacion importante a valor es el numero de transacciondnes que se realizaron mensualente:
+Otra informacion importante a valorar es el número de transacciondnes que se realizaron mensualente:
 - Enero 1845 transacciones y un total de ventas de $53,816.95,
 - Febrero 1685 transacciones y un total de ventas de $50,790.35
 - Marzo 1840 transacciones y un total de ventas de $54,610.60
