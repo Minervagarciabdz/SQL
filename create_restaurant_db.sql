@@ -12346,6 +12346,11 @@ FROM order_details
 	ORDER BY order_id DESC
 	LIMIT 1;
 
+SELECT DISTINCT (order_id)
+FROM order_details
+	WHERE item_id IS not NUll
+	ORDER BY order_id DESC
+	LIMIT 1;
 --● ¿Cuáles son los 5 pedidos que tuvieron el mayor número de artículos?
 -- Hay 8 Ordenes que incluyeron 14 articulos en su respectivo pedido, estas son 330,440,443
 --1957,2675,3473,4305,4482
@@ -12426,6 +12431,12 @@ utiliza los resultados obtenidos para llegar a estas conclusiones. */
 SELECT * FROM order_details;
 SELECT * FROM menu_items;
 
+SELECT * FROM menu_items
+ORDER BY price DESC;
+
+SELECT * FROM menu_items
+ORDER BY price ASC;
+
 --Que tanto se pide un producto
 SELECT COUNT(item_id), item_id
 FROM order_details
@@ -12434,7 +12445,17 @@ ORDER BY COUNT (item_id) DESC;
 
 SELECT order_details_id,order_id,order_date,order_time,item_id
 FROM order_details
-WHERE item_id = 101;
+WHERE item_id = 130;
+
+--Cuantas veces se vendio el producto más caro=239
+SELECT COUNT(item_id) 
+FROM order_details
+WHERE item_id = 130;
+
+--Cuantas veces se vendio el producto más barato=620
+SELECT COUNT(item_id) 
+FROM order_details
+WHERE item_id = 113;
 
 --Ordenes con productos nulos
 SELECT order_details_id,order_id,order_date,order_time,item_id
@@ -12446,6 +12467,9 @@ SELECT COUNT(order_details_id)
 FROM order_details
 WHERE item_id IS NUll;
 
+SELECT COUNT(order_details_id)
+FROM order_details
+WHERE item_id IS not NUll;
 --Precio Maximo, precio promedio y precio más bajo
 -- 19.95,13.29,5.00
 SELECT ROUND (AVG(price),2) as PROMEDIO,
@@ -12462,3 +12486,50 @@ ORDER BY price DESC;
 SELECT * FROM menu_items
 WHERE menu_item_id IN (115,114,128,116,121)
 ORDER BY price DESC;
+
+SELECT * FROM menu_items
+WHERE price >= 13.29
+ORDER BY PRICE ASC;
+
+SELECT * FROM menu_items
+WHERE price <= 13.29
+ORDER BY PRICE DESC;
+
+-- 1845 Ordenes en Enero
+SELECT COUNT(DISTINCT(order_id))
+	FROM order_details
+	WHERE order_date BETWEEN '2023-01-01' AND '2023-01-31';
+
+--1685 Ordenes en Febrero
+SELECT COUNT(DISTINCT(order_id))
+	FROM order_details
+	WHERE order_date BETWEEN '2023-02-01' AND '2023-02-28';
+
+-- 1840 Ordenes en Marzo
+SELECT COUNT(DISTINCT(order_id))
+	FROM order_details
+	WHERE order_date BETWEEN '2023-03-01' AND '2023-03-31';
+
+SELECT SUM(price)
+	FROM order_details
+INNER JOIN menu_items
+ON order_details.item_id=menu_items.menu_item_id
+WHERE order_date BETWEEN '2023-01-01' AND '2023-01-31';
+-- Total de ventas Enero $53816.95
+
+SELECT SUM(price)
+	FROM order_details
+INNER JOIN menu_items
+ON order_details.item_id=menu_items.menu_item_id
+WHERE order_date BETWEEN '2023-02-01' AND '2023-02-28';
+--Total de ventas Febrero $50790.35
+
+SELECT SUM(price)
+	FROM order_details
+INNER JOIN menu_items
+ON order_details.item_id=menu_items.menu_item_id
+WHERE order_date BETWEEN '2023-03-01' AND '2023-03-31';
+-- Total de ventas Marzo $54610.60
+
+
+
