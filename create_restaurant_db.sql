@@ -12352,17 +12352,30 @@ FROM order_details
 	ORDER BY order_id DESC
 	LIMIT 1;
 --● ¿Cuáles son los 5 pedidos que tuvieron el mayor número de artículos?
--- Hay 8 Ordenes que incluyeron 14 articulos en su respectivo pedido, estas son 330,440,443
---1957,2675,3473,4305,4482
+-- Hay 7 Ordenes que incluyeron 14 articulos en su respectivo pedido, estas son 330,440,443
+--1957,2675,3473,4305, 4305,1957,3473,2675,440,330,443
+
 SELECT COUNT (order_details_id), order_id
 FROM order_details 
 GROUP BY order_id
 ORDER BY COUNT (order_details_id) DESC,order_id ASC
 LIMIT 8;
 
+--Vamos a ver otro ejemplo (cuenta x mesa):
+SELECT * FROM order_details
+
+SELECT order_id, COUNT (item_id)
+FROM order_details
+GROUP BY order_id
+ORDER BY COUNT(item_id) DESC
+LIMIT 7;
+-- 4305,1957,3473,2675,440,330,443
+
+--Hay una diferencia entra las 2 conclutas porque la orden 4482,
+--tiene un platillo NULL
 SELECT order_details_id,order_id,order_date,order_time,item_id
 FROM order_details 
-WHERE order_id=440;
+WHERE order_id=4482;
 
 --● ¿Cuándo se realizó el primer pedido y el último pedido?
 -- El primer pedido se realizo el 1 de Enero del 2023 a las 11:38:36 hrs
@@ -12423,6 +12436,11 @@ FROM order_details AS o
 LEFT JOIN menu_items AS mi
 ON o.item_id=mi.menu_item_id;
 
+SELECT *
+	FROM order_details AS o
+	LEFT JOIN menu_items AS m
+	ON o.item_id=m.menu_item_id;
+
 /*e) Una vez que hayas explorado los datos en las tablas correspondientes y respondido las
 preguntas planteadas, realiza un análisis adicional utilizando este join entre las tablas. El
 objetivo es identificar 5 puntos clave que puedan ser de utilidad para los dueños del
@@ -12443,9 +12461,32 @@ FROM order_details
 GROUP BY item_id
 ORDER BY COUNT (item_id) DESC;
 
+SELECT * FROM order_details;
+SELECT * FROM menu_items;
+
+SELECT COUNT (o.item_id),
+o.item_id,
+m.item_name,
+m.category,
+m.price
+FROM order_details AS o
+INNER JOIN menu_items AS m
+ON o.item_id=m.menu_item_id
+GROUP BY o.item_id,m.item_name,m.category,m.price
+ORDER BY COUNT (o.item_id)asc
+LIMIT 5;
+
 SELECT order_details_id,order_id,order_date,order_time,item_id
 FROM order_details
 WHERE item_id = 130;
+
+SELECT COUNT(o.order_id),m.item_name
+	FROM order_details AS o
+	LEFT JOIN menu_items AS m
+	ON o.item_id=m.menu_item_id
+	GROUP BY m.item_name
+	ORDER BY COUNT(o.order_id) DESC
+LIMIT 3;
 
 --Cuantas veces se vendio el producto más caro=239
 SELECT COUNT(item_id) 
