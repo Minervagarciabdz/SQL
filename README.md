@@ -21,7 +21,8 @@ Otro punto importante a tener presente es el **top 5** de los produntos que más
 
 Donde 3 de los productos más vendidos, incluido en No. 1 tienen un costo por debajo del promedio de los platillos del menú. Por otra parte también es importante notar que en este top se tienen 2 Hambuerguesas y las papas fritas que vienen a ser el complento ideal para las hambuergueas. 
 
-![Captura de pantalla 2024-07-30 195958](https://github.com/user-attachments/assets/915bbd3d-ea30-4b49-9717-8fd9d4e48d6c)
+![Captura de pantalla 2024-08-04 110712](https://github.com/user-attachments/assets/486ac462-0266-465c-a113-7c05bdb876d4)
+
 
 Por contra parte tenemos los 5 productos menos vendidos del menú: 
 1. 115 Chicken Tacos Mexican $11.95
@@ -30,6 +31,7 @@ Por contra parte tenemos los 5 productos menos vendidos del menú:
 4. 116 Steak Tacos Mexican $13.95
 5. 121 Cheese Quesadillas Mexican $10.50
    
-![Captura de pantalla 2024-07-30 200021](https://github.com/user-attachments/assets/512b5c45-7ebb-4685-8d91-034070c9bb39)
+![Captura de pantalla 2024-08-04 110744](https://github.com/user-attachments/assets/b0fce87c-6500-418b-b01f-edb91257e395)
+
 
 Es recomendame poner atención es estos últimos prodructos y realizar una valoración para cambiarlos y así optimizar las ventas del restaurante.
